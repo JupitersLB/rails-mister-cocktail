@@ -1,0 +1,17 @@
+<div class="banner justify-content-center">
+  <div class="banner-content justify-content-center align-items-center">
+    <form class="form-inline my-2 my-lg-0 align-middle" action="search">
+      <input class="form-control form-input-background form-control-lg mr-sm-2" id="banner-typed-text" type="search" name="q" placeholder="">
+      <button class="btn btn-outline-secondary btn-lg my-2 my-sm-0" type="submit">Search</button>
+      <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+    </form>
+  </div>
+</div>
+
+<div class="container">
+  <h1 class="mt-5">Your Cocktails</h1>
+  <% @cocktails.each do |cocktail|  %>
+    <h3 class="mt-5"><%= link_to cocktail.name, cocktail_path(cocktail) %></h3>
+  <% end %>
+</div>
+

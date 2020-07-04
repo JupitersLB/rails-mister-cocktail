@@ -1,0 +1,24 @@
+.banner {
+  margin-top: -72px;
+  display: flex;
+  position: top;
+  background-image: asset-url('banner.jpg');
+  width: 100%;
+  height: 70vh;
+  background-size: cover;
+  background-position: center;
+
+  .banner-content {
+    display: flex;
+    height: inherit;
+    width: 1000px;
+  }
+
+  .form-input-background {
+    background-color: rgba(200, 200, 200, 0.5);
+  }
+
+  ::placeholder {
+    color: rgb(40, 40, 40);
+  }
+}
