@@ -1,0 +1,14 @@
+<h1>Results from your cocktail search...</h1>
+<p>You searched for <strong><%= @keyword %></strong>. We found <%= @cocktails.count %> on our website.</p>
+
+<div class="row mt-5">
+  <div class="col text-center">
+    <div class="cards mt-3">
+    <% @cocktails.each do |cocktail|  %>
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+        <h3 class="mt-5"><%= link_to cocktail.name, cocktail_path(cocktail) %></h3>
+      </div>
+    <% end %>
+    </div>
+  </div>
+</div>

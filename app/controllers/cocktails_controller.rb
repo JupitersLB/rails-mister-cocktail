@@ -23,6 +23,12 @@ class CocktailsController < ApplicationController
     end
   end
 
+  def search
+    @keyword = params[:q]
+    @ingredient = Ingredient.where('name LIKE ?', "%#{@keyword}%")
+    @cocktails = @ingredient.doses.cocktails
+  end
+
   private
 
   def cocktail_params
