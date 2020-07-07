@@ -25,8 +25,11 @@ class CocktailsController < ApplicationController
 
   def search
     @keyword = params[:q]
-    @ingredient = Ingredient.where('name LIKE ?', "%#{@keyword}%")
-    @dose = Dose.where(ingredient_id: @ingredient.ids)
+    @ingredient = Ingredient.find_by_name(@keyword)
+    @dose = Dose.where(ingredient: @ingredient)
+
+    # @ingredient = Ingredient.where('name LIKE ?', "%#{@keyword}%")
+    # @dose = Dose.where(ingredient_id: @ingredient.ids)
     @cocktails = Cocktail.find(@dose.ids)
   end
 
