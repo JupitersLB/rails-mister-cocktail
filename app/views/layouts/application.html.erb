@@ -17,9 +17,8 @@
     <%= render 'shared/navbar' %>
       <%= yield %>
 
-    <%= audio_tag "one.mp3", id: "sound", autoplay: true %>
-
-
-
+  <!-- <audio autoplay loop>
+    <source src=<%= asset_path('one.mp3') %>>
+  </audio> -->
   </body>
 </html>
