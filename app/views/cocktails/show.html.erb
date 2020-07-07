@@ -13,4 +13,14 @@
   </div>
 <% end %>
 
-<%= link_to 'Add a dose', new_cocktail_dose_path(@cocktail) %>
+
+<button class="btn btn-outline-dark mb-5" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+    Add a Dose
+  </button>
+  <div class="collapse" id="collapseExample">
+    <div class="card card-body bg-transparent">
+      <%= render :template => 'doses/new.html.erb', cocktail: @cocktail, dose: @dose %>
+    </div>
+  </div>
+
+

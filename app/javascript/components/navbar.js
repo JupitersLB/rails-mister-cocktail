@@ -1,7 +1,6 @@
 const initUpdateNavbarOnScroll = () => {
   const navbar = document.querySelector('.my-navbar');
   const banner = document.querySelector('.banner');
-  console.log(navbar);
   if (navbar && banner) {
     window.addEventListener('scroll', () => {
       if (banner && window.scrollY <= banner.offsetHeight) {

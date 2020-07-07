@@ -1,11 +1,13 @@
 class CocktailsController < ApplicationController
   def index
     @cocktails = Cocktail.all
+    @animated_ingredients = Ingredient.all.pluck(:name).sample(10)
   end
 
   def show
     @cocktail = Cocktail.find(params[:id])
     @doses = @cocktail.doses
+    @dose = Dose.new
   end
 
   def new
