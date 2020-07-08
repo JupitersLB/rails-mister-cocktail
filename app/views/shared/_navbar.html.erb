@@ -2,12 +2,12 @@
   <div class="navbar-brand text-light"><%= link_to "Your Cocktails", root_path, class: "nav-link text-light" %></div>
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <%= link_to "Add a Cocktail", new_cocktail_path, :data => { :toggle => "modal", :target => "#newCocktailModal" }, class: "nav-link text-light" %>
+        <%= link_to "#{@cocktail.persisted? ? 'Edit your Cocktail' : 'Add a Cocktail'}", new_cocktail_path, :data => { :toggle => "modal", :target => "#newCocktailModal" }, class: "nav-link text-light" %>
         <div class="modal" id="newCocktailModal" tabindex="-1" role="dialog" aria-labelledby="newCocktailModalTitle" aria-hidden="true">
           <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
             <div class="modal-content">
               <div class="modal-header bg-dark">
-                <h3 class="modal-title" id="newCocktailModalTitle">Add a Cocktail</h3>
+                <h3 class="modal-title" id="newCocktailModalTitle"><%= @cocktail.persisted? ? 'Edit your Cocktail' : 'Add a Cocktail' %></h3>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
@@ -16,7 +16,7 @@
                   <%= simple_form_for (@cocktail) do |f| %>
                   <%= f.input :name %>
                   <%= f.input :photo, as: :file %>
-                  <%= f.submit "Add Cocktail", class: "btn btn-light w-100" %>
+                  <%= f.submit value: "#{f.object.new_record? ? 'Add a Cocktail' : 'Edit your Cocktail'}" %>
                   <% end %>
               </div>
             </div>
