@@ -1,5 +1,6 @@
 class CocktailsController < ApplicationController
   def index
+    @cocktail = Cocktail.new
     @cocktails = Cocktail.all
     @animated_ingredients = Ingredient.all.pluck(:name).sample(10)
   end
@@ -10,9 +11,13 @@ class CocktailsController < ApplicationController
     @dose = Dose.new
   end
 
-  def new
-    @cocktail = Cocktail.new
-  end
+  # def new
+  #   @cocktail = Cocktail.new
+  #   respond_to do |format|
+  #     format.html
+  #     format.js
+  #   end
+  # end
 
   def create
     @cocktail = Cocktail.new(cocktail_params)
@@ -24,6 +29,7 @@ class CocktailsController < ApplicationController
   end
 
   def search
+    @cocktail = Cocktail.new
     @keyword = params[:q]
     @ingredient = Ingredient.find_by_name(@keyword)
     @dose = Dose.where(ingredient: @ingredient)
