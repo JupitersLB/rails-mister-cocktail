@@ -31,11 +31,11 @@ class CocktailsController < ApplicationController
   def search
     @cocktail = Cocktail.new
     @keyword = params[:q]
-    @ingredient = Ingredient.find_by_name(@keyword.downcase)
-    @dose = Dose.where(ingredient: @ingredient)
+    # @ingredient = Ingredient.find_by_name(@keyword.downcase)
+    # @dose = Dose.where(ingredient: @ingredient)
 
-    # @ingredient = Ingredient.where('name LIKE ?', "%#{@keyword}%")
-    # @dose = Dose.where(ingredient_id: @ingredient.ids)
+    @ingredient = Ingredient.where('name LIKE ?', "%#{@keyword.downcase}%")
+    @dose = Dose.where(ingredient_id: @ingredient.ids)
     @cocktails = Cocktail.find(@dose.ids)
   end
 
