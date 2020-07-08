@@ -7,7 +7,7 @@
     <h1>Have a favorite ingredient?</h1>
     <form class="form-inline my-2 my-lg-0 align-middle" action="search">
       <input class="form-control form-input-background form-control-lg mr-sm-2" id="banner-typed-text" type="search" name="q" placeholder="" data-ingredients="<%= @animated_ingredients.to_json %>">
-      <button class="btn btn-outline-secondary btn-lg my-2 my-sm-0" type="submit">Search</button>
+      <button class="btn btn-outline-light btn-lg my-2 my-sm-0" type="submit">Search</button>
       <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
     </form>
   </div>
