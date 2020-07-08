@@ -35,8 +35,8 @@ class CocktailsController < ApplicationController
     # @dose = Dose.where(ingredient: @ingredient)
 
     @ingredient = Ingredient.where('name LIKE ?', "%#{@keyword}%")
-    @dose = Dose.where(ingredient_id: @ingredient.ids)
-    @cocktails = Cocktail.find(@dose.ids)
+    @doses = Dose.where(ingredient_id: @ingredient.ids)
+    @cocktails = Cocktail.find(@doses.pluck(:cocktail_id))
   end
 
   def update
