@@ -9,6 +9,9 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -20,5 +23,9 @@
   <!-- <audio autoplay loop>
     <source src=<%= asset_path('one.mp3') %>>
   </audio> -->
+
+    <script>
+      AOS.init();
+    </script>
   </body>
 </html>

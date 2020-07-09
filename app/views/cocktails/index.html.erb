@@ -15,10 +15,21 @@
 <div class="container">
   <h1 class="mt-3">Your Cocktails</h1>
   <div class="cards mt-3">
+    <% id = 1 %>
+    <% def aos_picker(id)
+      if id % 3 == 1
+      'fade-right'
+      elsif id % 3 == 2
+        'fade-up'
+      else
+        'fade-left'
+      end
+    end %>
     <% @cocktails.each do |cocktail|  %>
-      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+      <div class="card-category" id="<%= id %>" data-aos="<%= aos_picker(id) %>" data-aos-duration="1000">
         <h3 class="mt-5"><%= link_to cocktail.name, cocktail_path(cocktail) %></h3>
       </div>
+      <% id +=1 %>
     <% end %>
   </div>
 </div>
