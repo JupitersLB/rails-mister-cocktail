@@ -9,6 +9,9 @@ class CocktailsController < ApplicationController
     @cocktail = Cocktail.find(params[:id])
     @doses = @cocktail.doses
     @dose = Dose.new
+    @ingredients = Ingredient.find(@doses.pluck(:ingredient_id))
+    @similar_doses = Dose.where(ingredient_id: @ingredients.pluck(:id))
+    @cocktails = Cocktail.find(@similar_doses.pluck(:cocktail_id))
   end
 
   # def new
@@ -31,10 +34,7 @@ class CocktailsController < ApplicationController
   def search
     @cocktail = Cocktail.new
     @keyword = params[:q]
-    # @ingredient = Ingredient.find_by_name(@keyword.downcase)
-    # @dose = Dose.where(ingredient: @ingredient)
-
-    @ingredient = Ingredient.where('name LIKE ?', "%#{@keyword}%")
+    @ingredient = Ingredient.where('name ILIKE ?', "%#{@keyword}%")
     @doses = Dose.where(ingredient_id: @ingredient.ids)
     @cocktails = Cocktail.find(@doses.pluck(:cocktail_id))
   end
