@@ -18,10 +18,11 @@
     <% images = cloudinary_url("Cocktails.json", :type=>"list") %>
 
     <% @cocktails.each_with_index do |cocktail, idx|  %>
-      <div class="card-category" data-aos="<%= cocktail.aos_picker(idx) %>" data-aos-duration="1000" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cloudinary_url(cocktail.photo.key) if cocktail.photo.attached? %>.jpeg);">
+      <div class="card-category" id="<%= cocktail.id %>" data-aos="<%= cocktail.aos_picker(idx) %>" data-aos-duration="1000" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cloudinary_url(cocktail.photo.key) if cocktail.photo.attached? %>.jpeg);">
         <h3 class="mt-5"><%= link_to cocktail.name, cocktail_path(cocktail) %></h3>
-        <h5 class="cocktail-cubes"><strong><%= cocktail.cubes %></strong></h5>
-        <i class="fas fa-cubes fa-2x"></i>
+        <div class="cocktail-details" id="<%= cocktail.id %>">
+          <i class="<%= cocktail.id %> fas fa-cubes fa-2x" data-counter="<%= cocktail.cubes %>"><%= cocktail.cubes %></i>
+        </div>
       </div>
     <% end %>
   </div>

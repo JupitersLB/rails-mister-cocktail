@@ -14,13 +14,13 @@ class CocktailsController < ApplicationController
     @cocktails = Cocktail.find(@similar_doses.pluck(:cocktail_id))
   end
 
-  # def new
-  #   @cocktail = Cocktail.new
-  #   respond_to do |format|
-  #     format.html
-  #     format.js
-  #   end
-  # end
+  def cubes
+    @cocktails = Cocktail.all
+    @cocktail = Cocktail.find(params[:cocktail_id])
+    @cocktail.update(cubes: params[:new_count])
+    @cocktail.save
+    render :index
+  end
 
   def create
     @cocktail = Cocktail.new(cocktail_params)
@@ -48,6 +48,6 @@ class CocktailsController < ApplicationController
   private
 
   def cocktail_params
-    params.require(:cocktail).permit(:name, :photo)
+    params.require(:cocktail).permit(:name, :photo, :cubes)
   end
 end
