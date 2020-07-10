@@ -37,7 +37,7 @@ document.addEventListener('turbolinks:load', () => {
         count += 1;
         cube.dataset.counter = count;
         cube.innerHTML = count;
-        console.log("trying ajax...")
+        cube.style.pointerEvents = 'none';
         $.ajax({
           url: `cocktails/${card.id}/cubes`,
           method: "PATCH",
