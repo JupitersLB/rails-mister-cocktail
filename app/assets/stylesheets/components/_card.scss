@@ -1,6 +1,7 @@
 .cards {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  margin-bottom: 80px;
   grid-gap: 16px;
   a:link {
     text-decoration: none;
