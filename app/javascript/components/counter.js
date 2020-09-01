@@ -4,11 +4,12 @@ $(upvoteCocktailCubes() {
   let count;
   cocktailCards.forEach((card) => {
     card.addEventListener('click', (event) => {
-      const cube = card.querySelector(`.fa-cubes`);
+      const counter-text = card.querySelector('.cocktail-count')
+      const cube = card.querySelector('.fa-cubes');
       count = parseInt(cube.dataset.counter, 10);
       count += 1;
       cube.dataset.counter = count;
-      cube.innerHTML = count;
+      cocktail-cubes.innerText = count;
     });
   });
 });
