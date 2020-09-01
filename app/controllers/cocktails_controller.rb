@@ -1,7 +1,7 @@
 class CocktailsController < ApplicationController
   def index
     @cocktail = Cocktail.new
-    @cocktails = Cocktail.all
+    @cocktails = Cocktail.all.order(cubes: :desc)
     @animated_ingredients = Ingredient.all.pluck(:name).sample(10)
   end
 
