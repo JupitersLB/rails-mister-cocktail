@@ -2,3 +2,11 @@ h1 {
   color: rgb(150, 150, 150);
   text-shadow: 2px 2px rgb(50, 50, 50);
 }
+
+.fa-chevron-circle-up {
+  position: fixed;
+  bottom: 64px;
+  right: 32px;
+  font-size: 32px;
+  cursor: pointer;
+}

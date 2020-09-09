@@ -1,7 +1,7 @@
 <div class="banner justify-content-center">
   <div class="banner-content justify-content-center align-items-center">
     <h1>Have a favorite ingredient?</h1>
-    <form class="form-inline my-2 my-lg-0 align-middle" action="search">
+    <form class="form-inline my-2 my-lg-0 align-middle search-bar" action="search">
       <input class="form-control form-input-background form-control-lg mr-sm-2" id="banner-typed-text" type="search" name="q" placeholder="" data-ingredients="<%= @animated_ingredients.to_json %>">
       <button class="btn btn-outline-light btn-lg my-2 my-sm-0" type="submit">Search</button>
     </form>
@@ -24,6 +24,7 @@
       <% end %>
     <% end %>
   </div>
+  <i class="fas fa-chevron-circle-up"></i>
 </div>
 
 

@@ -12,6 +12,7 @@ require("channels")
 import 'bootstrap';
 import { initUpdateNavbarOnScroll } from '../components/navbar';
 import { loadDynamicBannerText } from '../components/banner';
+import scroll from '../components/scroll';
 // import { upvoteCocktailCubes } from '../components/counter';
 
 // Uncomment to copy all static images under ../images to the output folder and reference
@@ -24,7 +25,8 @@ document.addEventListener('turbolinks:load', () => {
   // Call your JS functions here
   initUpdateNavbarOnScroll();
   loadDynamicBannerText();
-  // upvoteCocktailCubes();
+  scroll();
+
   $(function() {
     const cocktailCards = document.querySelectorAll('.card-category');
 
