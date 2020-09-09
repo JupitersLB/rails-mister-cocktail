@@ -1,16 +1,23 @@
-<h1>Results from your cocktail search...</h1>
-<p>You searched for <strong><%= @keyword %></strong>. We found <%= @cocktails.count %> on our website.</p>
+<div class="container">
 
-<div class="row mt-5">
-  <div class="col text-center">
-    <div class="cards mt-3">
-    <% @cocktails.each do |cocktail|  %>
-      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cloudinary_url(cocktail.photo.key) if cocktail.photo.attached? %>.jpeg);">
-        <h3 class="mt-5"><%= link_to cocktail.name, cocktail_path(cocktail) %></h3>
-        <h5 class="cocktail-cubes"><strong><%= cocktail.cubes %></strong></h5>
-        <i class="fas fa-cubes fa-2x" id="cubes"></i>
+  <h1>Results from your cocktail search...</h1>
+  <p>You searched for <strong><%= @keyword %></strong>. We found <%= @cocktails.count %> on our website.</p>
+
+  <div class="row mt-5">
+    <div class="col text-center">
+      <div class="cards mt-3">
+      <% @cocktails.each do |cocktail|  %>
+        <%= link_to cocktail_path(cocktail) do %>
+          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cocktail.photo.attached? ? "#{cloudinary_url(cocktail.photo.key)}.jpeg" : "#{asset_path 'default-cocktail.jpg'}" %>);">
+            <h3 class="mt-5"><%= cocktail.name %></h3>
+            <div class="cocktail-details" id="<%= cocktail.id %>">
+              <h4 class="cocktail-count"><i class="<%= cocktail.id %> fas fa-cubes fa-2x" data-counter="<%= cocktail.cubes %>"></i> <%= cocktail.cubes %></h4>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
       </div>
-    <% end %>
     </div>
   </div>
+
 </div>
